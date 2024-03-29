@@ -11,25 +11,41 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class IncomeTaxCalculator {
+
     public static void main(String[] args) {
 
         Scanner scan = new Scanner(System.in);
+        ArrayList<Integer> grossPayArray = new ArrayList<Integer>();
+
         System.out.println("**** Income Tax Calculator ****");
+
         System.out.print("Enter number of people to calculate for: ");
         int numberOfPeople = scan.nextInt();
         System.out.println();
-        ArrayList<Integer> grossPayArray = new ArrayList<Integer>();
+
         for(int i = 0; i < numberOfPeople; i++) {
 
-            System.out.println("Enter gross pay for employee " + (i+1));
+            System.out.print("Enter gross pay for employee " + (i+1) + ": ");
             int grossPay = scan.nextInt();
-            if (grossPay < 0) {
 
-            } else {
-                grossPayArray.add(grossPay);
+            while(grossPay < 0) {
+
+                System.err.println("Error, Pay must be positive.");
+
+                System.out.print("Enter gross pay for employee " + (i+1) + ": ");
+                grossPay = scan.nextInt();
+                System.out.println();
+
             }
+            
+            grossPayArray.add(grossPay);
+
+            if(grossPayArray.get(i) )
 
         }
+        // for(int i = 0; i < grossPayArray.size(); i++) {
+        //     System.out.println(grossPayArray.get(i));
+        // }
 
     }
 
