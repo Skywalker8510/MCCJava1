@@ -16,6 +16,8 @@ public class IncomeTaxCalculator {
 
         Scanner scan = new Scanner(System.in);
         ArrayList<Integer> grossPayArray = new ArrayList<Integer>();
+        ArrayList<Integer> children = new ArrayList<Integer>();
+        ArrayList<Integer> otherDependents = new ArrayList<Integer>();
 
         System.out.println("**** Income Tax Calculator ****");
 
@@ -40,12 +42,14 @@ public class IncomeTaxCalculator {
             
             grossPayArray.add(grossPay);
 
-            if(grossPayArray.get(i) )
+            if(grossPayArray.get(i) < 200000) {
+
+            }
 
         }
-        // for(int i = 0; i < grossPayArray.size(); i++) {
-        //     System.out.println(grossPayArray.get(i));
-        // }
+//        for(int i = 0; i < grossPayArray.size(); i++) {
+//            System.out.println(grossPayArray.get(i));
+//        }
 
     }
 
