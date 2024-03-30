@@ -102,19 +102,15 @@ public class IncomeTaxCalculator {
             }
 
             for (int i = 0; i < grossPayArray.size(); i++) {
-                System.out.println();
-                System.out.println("*** Employee" + (i + 1) + "***");
-                System.out.println("Yearly Pay: $" + df.format(grossPayArray.get(i)));
-                System.out.println("Income Tax " + taxAmount.get(i) + "%: $" + df.format(taxArray.get(i)));
-
+                System.out.println("\n*** Employee" + (i + 1) + "***\n" +
+                                    "Yearly Pay: $" + df.format(grossPayArray.get(i)) +
+                                    "\nIncome Tax " + taxAmount.get(i) + "%: $" + df.format(taxArray.get(i)));
 
             }
 
-            System.out.println();
-            System.out.println("Total Taxes: $" + df.format(taxArray.stream().mapToDouble(a -> a).sum()));
+            System.out.println("\nTotal Taxes: $" + df.format(taxArray.stream().mapToDouble(a -> a).sum()));
 
-            System.out.println();
-            System.out.print("Calculate another?(y/n): ");
+            System.out.print("\nCalculate another?(y/n): ");
             userInput = scan.next();
             System.out.println();
 
