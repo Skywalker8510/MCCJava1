@@ -21,6 +21,7 @@ public class DecimalBinaryConversion {
     }
 
     public static String RecursionToBinary(int number) {
+
         if(number == 0) {
             return "0";
         } else if(number == 1) {
@@ -28,6 +29,7 @@ public class DecimalBinaryConversion {
         } else {
             return RecursionToBinary(number / 2) + (number % 2);
         }
+
     }
 
 }
