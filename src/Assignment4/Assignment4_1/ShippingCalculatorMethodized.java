@@ -3,7 +3,7 @@ package Assignment4.Assignment4_1;
 //Class: INFO 1521 Spring 2024
 //Assignment: MCCJava1
 //Date: 4/4/2024
-//Resources:
+//Resources: CalculatorMethodized.java file and canvas page
 
 // A methodized version of the Shipping Calculator Code
 
