@@ -3,7 +3,7 @@ package Assignment5;
 //Class: INFO 1521 Spring 2024
 //Assignment: MCCJava1
 //Date: 4/23/2024
-//Resources: 
+//Resources: canvas page
 
 // Calculates and displays scores for a baseball game
 
@@ -29,83 +29,86 @@ public class BaseballScoreApp {
         }
 
 
-        // Initialize arrays for top and bottom innings, runs, hits, and errors
-        int[] topRuns = new int[numberOfInnings];
-        int[] topHits = new int[numberOfInnings];
-        int[] topErrors = new int[numberOfInnings];
-        int[] bottomRuns = new int[numberOfInnings];
-        int[] bottomHits = new int[numberOfInnings];
-        int[] bottomErrors = new int[numberOfInnings];
+        // Initialize arrays for runs, hits, and errors
+        int[][] runs = new int[2][numberOfInnings];
+        int[][] hits = new int[2][numberOfInnings];
+        int[][] errors = new int[2][numberOfInnings];
 
-        // Part 2: Get the Runs, Hits, and Errors
+        //Get user input for Runs, Hits, and Errors
         for (int i = 0; i < numberOfInnings; i++) {
             System.out.println("\n** Inning " + (i + 1) + " **");
 
             System.out.print("Enter top runs: ");
-            topRuns[i] = scan.nextInt();
+            runs[0][i] = scan.nextInt();
             System.out.print("Enter top hits: ");
-            topHits[i] = scan.nextInt();
+            hits[0][i] = scan.nextInt();
             System.out.print("Enter top errors: ");
-            topErrors[i] = scan.nextInt();
+            errors[0][i] = scan.nextInt();
 
             System.out.print("\nEnter bottom runs: ");
-            bottomRuns[i] = scan.nextInt();
+            runs[1][i] = scan.nextInt();
             System.out.print("Enter bottom hits: ");
-            bottomHits[i] = scan.nextInt();
+            hits[1][i] = scan.nextInt();
             System.out.print("Enter bottom errors: ");
-            bottomErrors[i] = scan.nextInt();
+            errors[1][i] = scan.nextInt();
         }
 
-        // Part 3: Calculate Scores and Display Results
+        //Print Results
         System.out.println("\n** Baseball/Softball Results **");
         System.out.printf("%-" + nameLength + "s |", "Innings");
         System.out.println(" 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | Runs | Hits | Errs |");
         System.out.println("--------------------------------------------------------------------");
-        // Print top innings
+        // Print innings
         System.out.printf("%-" + nameLength + "s |", team1Name);
-        printInnings(topRuns, topHits, topErrors);
+        printInnings(runs, hits, errors, 0);
         System.out.printf("%-" + nameLength + "s |", team2Name);
-        printInnings(bottomRuns, bottomHits, bottomErrors);
+        printInnings(runs, hits, errors, 1);
 
-        // Calculate and print hit conversion rate
-        System.out.println("\n" + team1Name + " HCR: " + df.format(calculateHCR(topRuns, topHits)));
-        System.out.println("\n" + team2Name + " HCR: " + df.format(calculateHCR(bottomRuns, bottomHits)));
+        //Print hit conversion rate
+        System.out.println("\n" + team1Name + " HCR: " + df.format(calculateHCR(runs, hits, 0)));
+        System.out.println("\n" + team2Name + " HCR: " + df.format(calculateHCR(runs, hits, 1)));
 
         // Determine winner
-        if (calculateTotal(topRuns) > calculateTotal(bottomRuns))
+        if (calculateTotal(runs, 0) > calculateTotal(runs, 1))
             System.out.println("\n" + team1Name + " Wins!");
-        else if (calculateTotal(topRuns) < calculateTotal(bottomRuns))
+        else if (calculateTotal(runs, 0) < calculateTotal(runs, 1))
             System.out.println("\n" + team2Name + " Wins!");
         else
             System.out.println("\nIt's a Tie!");
     }
 
-    // Helper method to calculate total
-    private static int calculateTotal(int[] arrayToCalculate) {
+    //Calculate total of everything in the array
+    private static int calculateTotal(int[][] arrayToCalculate, int i) {
         int total = 0;
-        for (int i : arrayToCalculate) {
-            total += i;
+        for (int j : arrayToCalculate[i]) {
+            total += j;
         }
         return total;
     }
 
-    // Helper method to calculate hit conversion rate
-    private static double calculateHCR(int[] runs, int[] hits) {
+    //Calculate hit conversion rate
+    private static double calculateHCR(int[][] runs, int[][] hits, int i) {
         double HCR;
-        if (calculateTotal(runs) == 0) {
+        if (calculateTotal(runs, i) == 0) {
             HCR = 0;
         } else {
-            HCR = ((double) calculateTotal(hits)) / ((double) calculateTotal(runs));
+            HCR = ((double) calculateTotal(hits, i)) / ((double) calculateTotal(runs, i));
         }
         return HCR;
     }
 
     // Helper method to print innings
-    private static void printInnings(int[] runs, int[] hits, int[] errors) {
-        for (int i : runs) {
-            System.out.print(" " + i + " |");
+    private static void printInnings(int[][] runs, int[][] hits, int[][] errors, int i) {
+        for (int j : runs[i]) {
+            System.out.print(" " + j + " |");
         }
-        System.out.println("   " + calculateTotal(runs) + "  |  " + calculateTotal(hits) + "   |  " + calculateTotal(errors) + "   |");
+        int errorsTeam;
+        if (i == 0) {
+            errorsTeam = 1;
+        } else {
+            errorsTeam = 0;
+        }
+        System.out.println("   " + calculateTotal(runs, i) + "  |  " + calculateTotal(hits, i) + "   |  " + calculateTotal(errors, errorsTeam) + "   |");
     }
 
 }
