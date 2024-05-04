@@ -16,11 +16,11 @@ public class A8StudentChecker {
     public static void main(String[] args)
     {
 
-        Class c1 = new Class("23FA", "INFO", "1521", "Java I Programming",
+        Course c1 = new Course("23FA", "INFO", "1521", "Java I Programming",
                 "WW", "Online", "Online", "O. Kenobi");
-        Class c2 = new Class("23FA", "INFO", "1003", "Problem Solving and Programming",
+        Course c2 = new Course("23FA", "INFO", "1003", "Problem Solving and Programming",
                 "4A", "MW - 10:00am - 11:45am", "Fort Omaha", "O. Kenobi");
-        Class c3 = new Class("23FA", "INFO", "2800", "IT Ethics",
+        Course c3 = new Course("23FA", "INFO", "2800", "IT Ethics",
                 "WA", "Online", "Online", "M. Yoda");
 
         Student s1 = new Student(46739, "Leia", "Organa", "6523 Senate St.",
