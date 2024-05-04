@@ -27,7 +27,7 @@ public class Student {
 
     protected static NumberFormat twoDecimal = NumberFormat.getNumberInstance();
 
-    public StudentStarter(int id, String firstName, String lastName, String address, String city, String state, String zip,
+    public Student(int id, String firstName, String lastName, String address, String city, String state, String zip,
                           String gender, String DOB, String phone, String email) {
         this.id = id;
         this.firstName = firstName;
@@ -43,7 +43,7 @@ public class Student {
         twoDecimal.setMaximumFractionDigits(2);
     }
 
-    public StudentStarter() {
+    public Student() {
         id = 0;
         firstName = "";
         lastName = "";
