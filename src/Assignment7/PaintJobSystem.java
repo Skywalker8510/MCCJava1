@@ -183,11 +183,11 @@ public class PaintJobSystem {
             String color = input.nextLine();
             double cost = getDouble(input, "Enter cost: ");
 
-            Invoice i = new Invoice(id, date, firstName, lastName, address, brand, finish, color, cost);
+            Invoice i = new Invoice(id, date, lastName, firstName, address, brand, finish, color, cost);
             paintJobs.add(i);
         }
         else {
-            Invoice i = new Invoice(id, date, firstName, lastName, address);
+            Invoice i = new Invoice(id, date, lastName, firstName, address);
             paintJobs.add(i);
         }
 
