@@ -22,6 +22,9 @@ public class Student {
     private String phone;
     private String email;
 
+    ArrayList<Course> schedule = new ArrayList<>();
+    ArrayList<Course> officialRecord = new ArrayList<>();
+
     protected static NumberFormat twoDecimal = NumberFormat.getNumberInstance();
 
     public StudentStarter(int id, String firstName, String lastName, String address, String city, String state, String zip,
@@ -142,6 +145,8 @@ public class Student {
     public void setEmail(String email) {
         this.email = email;
     }
+
+
 
     public void printStudent() {
         System.out.println("ID: " + id + "\nName: " + firstName + " " + lastName + "\nAddress: " +
