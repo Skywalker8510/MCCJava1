@@ -3,9 +3,9 @@ package Assignment7;
 //Class: INFO 1521 Spring 2024
 //Assignment: MCCJava1
 //Date: 5/3/2024
-//Resources: 
+//Resources: Canvas page and supporting Class Files
 
-// Invoice file
+// Invoice Class
 
 import java.text.NumberFormat;
 
