@@ -40,13 +40,13 @@ public class A8StudentChecker {
         s2.printStudent();
         s2.printSchedule();
 
-        s1.addClass(c1);
-        s1.addClass(c2);
-        s1.addClass(c3);
-        s1.addClass(c1); // checks to make sure adding class again doesn't work.
+        s1.addCourse(c1);
+        s1.addCourse(c2);
+        s1.addCourse(c3);
+        s1.addCourse(c1); // checks to make sure adding class again doesn't work.
 
-        s2.addClass(c1);
-        s2.addClass(c2);
+        s2.addCourse(c1);
+        s2.addCourse(c2);
 
         System.out.println("\n\n*** Classes added to Schedule***");
         s1.printStudent();
@@ -56,8 +56,8 @@ public class A8StudentChecker {
         s2.printSchedule();
 
         System.out.println("\n\n*** Remove Classes ***");
-        s1.removeClass(c1);
-        s1.removeClass(c1); // remove a class that isn't there
+        s1.removeCourse(c1);
+        s1.removeCourse(c1); // remove a class that isn't there
         s1.printStudent();
         s1.printSchedule();
 

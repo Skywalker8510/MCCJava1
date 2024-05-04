@@ -180,7 +180,7 @@ public class ScheduleSystem {
         course--; // off by one from print to actual location in list
 
         // get student from list, add class from schedule list
-        if (studentList.get(student).addClass(schedule.get(course))) {
+        if (studentList.get(student).addCourse(schedule.get(course))) {
             System.out.println("\n! Course Added Successfully\n");
         }
         else {
