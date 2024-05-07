@@ -22,8 +22,8 @@ public class Student {
     private String phone;
     private String email;
 
-    ArrayList<Course> schedule = new ArrayList<>();
-    ArrayList<Course> officialRecord = new ArrayList<>();
+    ArrayList<Course> schedule;
+    ArrayList<Course> officialRecord;
 
     protected static NumberFormat twoDecimal = NumberFormat.getNumberInstance();
 
@@ -41,6 +41,8 @@ public class Student {
         this.phone = phone;
         this.email = email;
         twoDecimal.setMaximumFractionDigits(2);
+        schedule = new ArrayList<>();
+        officialRecord = new ArrayList<>();
     }
 
     public Student() {
@@ -56,6 +58,8 @@ public class Student {
         phone = "";
         email = "";
         twoDecimal.setMaximumFractionDigits(2);
+        schedule = new ArrayList<>();
+        officialRecord = new ArrayList<>();
     }
 
     public int getId() {
@@ -146,7 +150,69 @@ public class Student {
         this.email = email;
     }
 
+    public ArrayList<Course> getSchedule() {
+        return schedule;
+    }
 
+    public void setSchedule(ArrayList<Course> schedule) {
+        this.schedule = schedule;
+    }
+
+    // Getter and setter for officialRecord
+    public ArrayList<Course> getOfficialRecord() {
+        return officialRecord;
+    }
+
+    public void setOfficialRecord(ArrayList<Course> officialRecord) {
+        this.officialRecord = officialRecord;
+    }
+
+    // Method to add a course to the schedule
+    public boolean addCourse(Course course) {
+        if(!schedule.contains(course)) {
+            schedule.add(course);
+        }
+        return !schedule.contains(course);
+    }
+
+    public boolean removeCourse(Course course) {
+        if(schedule.contains(course)) {
+            schedule.remove(course);
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
+    public double calculateGPA() {
+        for (int i = 0; i < officialRecord.size(); i++) {
+            officialRecord.get(i).getNumberGrade()
+        }
+        return 0;   //TODO change after fixing method
+    }
+
+    // Method to print the schedule
+    public void printSchedule() {
+        System.out.println("Schedule:");
+        for (Course course : schedule) {
+            course.printCourse();
+        }
+    }
+
+    // Method to print the official record
+    public void printOfficialRecord() {
+        System.out.println("Official Record:");
+        for (Course course : officialRecord) {
+            course.printCourse();
+            System.out.println(course.getGrade());
+        }
+    }
+
+    // Method to end the quarter and update grades in officialRecord
+    public boolean endQuarter(String[] grades) {
+
+    }
 
     public void printStudent() {
         System.out.println("ID: " + id + "\nName: " + firstName + " " + lastName + "\nAddress: " +
