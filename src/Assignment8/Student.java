@@ -158,7 +158,6 @@ public class Student {
         this.schedule = schedule;
     }
 
-    // Getter and setter for officialRecord
     public ArrayList<Course> getOfficialRecord() {
         return officialRecord;
     }
@@ -167,7 +166,6 @@ public class Student {
         this.officialRecord = officialRecord;
     }
 
-    // Method to add a course to the schedule
     public boolean addCourse(Course course) {
         if(!schedule.contains(course)) {
             schedule.add(course);
@@ -186,13 +184,13 @@ public class Student {
     }
 
     public double calculateGPA() {
+        double gradesTotal = 0;
         for (int i = 0; i < officialRecord.size(); i++) {
-            officialRecord.get(i).getNumberGrade()
+            gradesTotal += officialRecord.get(i).getNumberGrade();
         }
-        return 0;   //TODO change after fixing method
+        return gradesTotal/officialRecord.size();
     }
 
-    // Method to print the schedule
     public void printSchedule() {
         System.out.println("Schedule:");
         for (Course course : schedule) {
@@ -200,7 +198,6 @@ public class Student {
         }
     }
 
-    // Method to print the official record
     public void printOfficialRecord() {
         System.out.println("Official Record:");
         for (Course course : officialRecord) {
@@ -209,9 +206,17 @@ public class Student {
         }
     }
 
-    // Method to end the quarter and update grades in officialRecord
     public boolean endQuarter(String[] grades) {
-
+        if (schedule.size() != grades.length) {
+            return false;
+        }
+        for (int i = 0; i < schedule.size(); i++) {
+            Course copy = new Course(schedule.get(i));
+            copy.setGrade(grades[i]);
+            officialRecord.add(copy);
+        }
+        schedule.clear();
+        return true;
     }
 
     public void printStudent() {

@@ -114,7 +114,7 @@ public class Course {
         this.grade = grade;
     }
 
-    public Double getNumberGrade(String grade) {
+    public Double getNumberGrade() {
         double numberGrade = 0.0;
         if(grade.equalsIgnoreCase("A")) {
             numberGrade = 4.0;
