@@ -143,10 +143,11 @@ public abstract class Employee {
     }
     
     public void printEmployee() {
-        System.out.println("Name: " + firstName +" " + lastName + "\nID: " + employeeNum +
-                "\nDepartment: " + department + "\nTitle: " + jobTitle
+        System.out.println(toString());
+//        System.out.println("Name: " + firstName +" " + lastName + "\nID: " + employeeNum +
+//                "\nDepartment: " + department + "\nTitle: " + jobTitle
 //                + "\nPay: " + payRate + "\nHours Worked: " + hoursWorked
-                    );
+//                    );
     }
 
     public void printEmergencyContacts() {
