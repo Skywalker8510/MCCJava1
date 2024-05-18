@@ -3,6 +3,7 @@ package Assignment9;
 
 import java.text.NumberFormat;
 import java.util.ArrayList;
+import java.util.Objects;
 
 public abstract class Employee {
     private String firstName;
@@ -181,6 +182,24 @@ public abstract class Employee {
         }
     }
 
+    public abstract void resetWeek();
 
+    public abstract double calculateWeeklyPay();
+
+    public abstract void annualRaise();
+
+    public abstract double holidayBonus();
+
+    public abstract void  setPay(double pay);
+
+    @Override
+    public String toString() {
+        return super.toString();
+    }
+
+    @Override
+    public boolean equals(Object obj2) {
+
+    }
 
 }
