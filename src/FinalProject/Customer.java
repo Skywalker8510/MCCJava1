@@ -82,10 +82,10 @@ public class Customer {
         createRewards();
     }
 
-    private void createRewards() {
-        while (points >= 200) {
-            double rewardAmount = (points / 200) * 15;
-            points %= 200;
+    public void createRewards() {
+        while (this.points >= 200) {
+            double rewardAmount = (this.points / 200) * 15;
+            this.points %= 200;
             Reward reward = new Reward(accountNumber, rewardAmount);
             rewards.add(reward);
         }
