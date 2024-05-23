@@ -16,7 +16,7 @@ public class Customer {
         setAddress(address);
         setEmail(email);
         setPhone(phone);
-        setAccountNumber(accountNumber);
+        setAccountNumber(phone);
         setPoints(0);
         this.rewards = new ArrayList<>();
     }
@@ -78,6 +78,10 @@ public class Customer {
     }
 
     public void addPoints(double points) {
+        this.points += points;
+    }
+
+    public void addPointsAndCalculateRewards(double points) {
         this.points += points;
         createRewards();
     }
