@@ -6,8 +6,9 @@ public class Database {
 
     private ArrayList<Item> items;
     private ArrayList<Customer> customers;
-//    private ArrayList<Reward> rewardsMasterArray;
+//    private ArrayList<Reward> rewardsMasterArray; //TODO need to work on this later cant get this to function how i want it to and i dont have time to mess with it
 
+    //added for testing porposes. needed to add a few items on initialize to get everything primed for me to test stuff
     public void testSetupFunction() {
         items.add(new Item("041475778990", "Air Jordan 1", "Nike", "9.5", 5, 124.99));
         items.add(new Item("269979408784", "Air Jordan 1", "Nike", "10", 3, 124.99));
@@ -33,12 +34,12 @@ public class Database {
     public Database() {
         items = new ArrayList<>();
         customers = new ArrayList<>();
-//        rewardsMasterArray = new ArrayList<>();
+//        rewardsMasterArray = new ArrayList<>(); //TODO need to work on this later cant get this to function how i want it to and i dont have time to mess with it
     }
 
     public void addItem(String upc, String name, String brand, String size, int inventory, double price) {
 
-        Item item = new Item(upc, name, brand, size, inventory, price);
+        Item item = new Item(upc, name, brand, size, inventory, price); //create a new item then pass it to the items ArrayList
 
         if (!items.contains(item)) {
             items.add(item);
@@ -52,7 +53,7 @@ public class Database {
         items.removeIf(item -> item.getUpc().equals(upc));
     }
 
-    public Item lookupItem(String upc) {
+    public Item lookupItem(String upc) { //find UPC of item in items and return the item
         for (Item item : items) {
             if (item.getUpc().equals(upc)) {
                 return item;
@@ -61,7 +62,7 @@ public class Database {
         return null;
     }
 
-    public void addCustomer(String name, String address, String email, String phone, String accountNumber) {
+    public void addCustomer(String name, String address, String email, String phone, String accountNumber) { //create a new customer then pass it to the customers ArrayList
 
         Customer customer = new Customer(name, address, email, phone, accountNumber);
 
@@ -86,6 +87,8 @@ public class Database {
         return null;
     }
 
+
+    //TODO need to work on this later cant get this to function how i want it to and i dont have time to mess with it
 //    public void createCustomorRevards() {
 //        for (Customer customer : customers) {
 //            Reward reward = customer.createRewards();

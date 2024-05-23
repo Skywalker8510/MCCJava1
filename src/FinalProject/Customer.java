@@ -11,6 +11,7 @@ public class Customer {
     private double points;
     private ArrayList<Reward> rewards;
 
+    //Constructor
     public Customer(String name, String address, String email, String phone, String accountNumber) {
         setName(name);
         setAddress(address);
@@ -87,8 +88,8 @@ public class Customer {
     }
 
     public void createRewards() {
-        while (this.points >= 200) {
-            double rewardAmount = (this.points / 200) * 15;
+        while (this.points >= 200) { //if points are above or equal to 200 we create rewards
+            double rewardAmount = (this.points / 200) * 15; // rewards are worth 15 dollars for every 200 points
             this.points %= 200;
             Reward reward = new Reward(accountNumber, rewardAmount);
             rewards.add(reward);

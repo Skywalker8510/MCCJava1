@@ -11,6 +11,7 @@ public class Item {
     private int inventory;
     private double price;
 
+    //Constructor
     public Item(String upc, String name, String brand, String size, int inventory, double price) {
         setUpc(upc);
         setName(name);
@@ -96,7 +97,7 @@ public class Item {
     }
 
     public void sellItem() {
-        if (inventory > 0) {
+        if (inventory > 0) { //make sure we have stock, so we don't sell something we don't have stock of.
             this.inventory--;
         }
         else {
