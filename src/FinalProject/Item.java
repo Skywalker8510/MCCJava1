@@ -100,7 +100,7 @@ public class Item {
             this.inventory--;
         }
         else {
-            throw new IllegalStateException("Item out of stock");
+            System.err.println("Item out of stock");
         }
     }
 }
